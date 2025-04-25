@@ -1,0 +1,46 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "generated/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Equipament {
+    id        Int      @id @default(autoincrement())
+    name      String
+    image_url String
+    sensors   Sensor[]
+}
+
+enum SensorType {
+    TEMPERATURE
+    ELETRICT_CURRENT
+    VIBRATION
+}
+
+enum Unit {
+    CELSIUS
+    AMPERE
+    MILLIMETERS_PER_SECOND
+}
+
+model Sensor {
+    id           Int         @id @default(autoincrement())
+    image_url    String
+    type         SensorType
+    data         Data[]
+    Equipament   Equipament? @relation(fields: [equipamentId], references: [id])
+    equipamentId Int?
+}
+
+model Data {
+    id        Int      @id @default(autoincrement())
+    timestamp DateTime
+    value     Decimal
+    unit      Unit
+    Sensor    Sensor?  @relation(fields: [sensorId], references: [id])
+    sensorId  Int?
+}
