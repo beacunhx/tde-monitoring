@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { SideMenu } from "@/components/SideMenu";
+import { AppSidebar } from "@/components/AppSidebar";
 import { Poppins } from "next/font/google";
+import Providers from "./providers";
 
 import "./globals.css";
 
@@ -18,10 +19,12 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="pt-BR">
       <body
-        className={`antialiased font-sans flex min-h-dvh ${poppins.variable}`}
+        className={`flex min-h-dvh font-sans antialiased ${poppins.variable}`}
       >
-        <SideMenu />
-        <main className="p-2">{children}</main>
+        <Providers>
+          <AppSidebar />
+          <main className="flex flex-1 flex-col gap-4 p-2">{children}</main>
+        </Providers>
       </body>
     </html>
   );

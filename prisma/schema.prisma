@@ -29,7 +29,7 @@ enum Unit {
 
 model Sensor {
     id           Int         @id @default(autoincrement())
-    image_url    String
+    name         String
     type         SensorType
     data         Data[]
     Equipament   Equipament? @relation(fields: [equipamentId], references: [id])

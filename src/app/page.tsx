@@ -1,6 +1,5 @@
-import prisma from "@/lib/prisma";
+import { redirect } from "next/navigation";
 
-export default async function IndexPage() {
-  const equipament = await prisma.equipament.findMany();
-  return equipament.map(({ name }) => <div key={name}>{name}</div>);
+export default function IndexPage() {
+  return redirect("/home");
 }

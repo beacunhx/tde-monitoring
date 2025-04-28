@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default function ConfigurationsPage() {
-  return null;
+  return redirect("/configurations/equipaments");
 }
