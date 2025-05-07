@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { AppSidebar } from "@/components/AppSidebar";
 import { Poppins } from "next/font/google";
+import { AppSidebar } from "@/components/AppSidebar";
+import { Toaster } from "@/components/ui/sonner";
 import Providers from "./providers";
 
 import "./globals.css";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           <AppSidebar />
           <main className="flex flex-1 flex-col gap-4 p-2">{children}</main>
         </Providers>
+        <Toaster />
       </body>
     </html>
   );
