@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Sensor } from "@prisma/generated/client";
 import { createColumnHelper } from "@tanstack/react-table";
 import { Trash } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const columnHelper = createColumnHelper<Sensor>();
 

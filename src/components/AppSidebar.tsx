@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -11,9 +13,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import Link from "next/link";
-
-import { usePathname } from "next/navigation";
 
 export function AppSidebar() {
   const pathname = usePathname();

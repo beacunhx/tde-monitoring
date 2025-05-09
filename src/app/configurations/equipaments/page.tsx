@@ -1,7 +1,7 @@
 import { DataTable } from "@/components/DataTable";
-import { columns } from "./columns";
-import prisma from "@/lib/prisma";
 import { Header } from "@/components/Header";
+import prisma from "@/lib/prisma";
+import { columns } from "./columns";
 
 export default async function EquipamentsPage() {
   const equipaments = await prisma.equipament.findMany();

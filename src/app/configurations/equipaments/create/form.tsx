@@ -1,11 +1,14 @@
 "use client";
 
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import {
+  equipamentsCreateSchema,
+  type EquipamentsCreateSchemaType,
+} from "@/app/schemas/equipaments";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -14,10 +17,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  equipamentsCreateSchema,
-  type EquipamentsCreateSchemaType,
-} from "@/app/schemas/equipaments";
+import { Input } from "@/components/ui/input";
 import { create } from "./actions";
 
 export function EquipamentsCreateForm() {

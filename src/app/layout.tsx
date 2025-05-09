@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Toaster } from "@/components/ui/sonner";
-import Providers from "./providers";
-
 import "./globals.css";
+import Providers from "./providers";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -26,7 +25,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           <AppSidebar />
           <main className="flex flex-1 flex-col gap-4 p-2">{children}</main>
         </Providers>
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );
