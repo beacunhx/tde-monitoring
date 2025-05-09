@@ -10,6 +10,8 @@ const SENSOR_TYPES = {
   VIBRATION: "Vibração",
 };
 
+export const dynamic = "auto";
+
 export default async function SensorsPage() {
   const data = await prisma.sensor.findMany();
   const sensors = data.map((sensor) => ({

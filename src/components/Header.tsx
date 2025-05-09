@@ -1,6 +1,7 @@
 import { Dot } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { SidebarTrigger } from "./ui/sidebar";
 import { Skeleton } from "./ui/skeleton";
 
 type HeaderProps = {
@@ -12,7 +13,8 @@ type HeaderProps = {
 
 export function Header({ title, amount, loading, buttons = [] }: HeaderProps) {
   return (
-    <header className="flex items-center p-2">
+    <header className="flex h-13 items-center p-2">
+      <SidebarTrigger className="mr-4" />
       <div className="flex items-center gap-1">
         <span className="font-semibold">{title}</span>
         {typeof amount === "number" ? (

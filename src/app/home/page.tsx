@@ -1,3 +1,9 @@
+import { Header } from "@/components/Header";
+
 export default function HomePage() {
-  return null;
+  return (
+    <>
+      <Header title="Monitoramento" />
+    </>
+  );
 }

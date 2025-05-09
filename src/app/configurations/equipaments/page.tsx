@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import prisma from "@/lib/prisma";
 import { columns } from "./columns";
 
+export const dynamic = "auto";
+
 export default async function EquipamentsPage() {
   const equipaments = await prisma.equipament.findMany();
   return (
