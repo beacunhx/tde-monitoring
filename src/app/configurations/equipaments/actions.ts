@@ -18,3 +18,13 @@ export async function create(data: FormData) {
     return [null, e];
   }
 }
+
+export async function deleteById(id: number) {
+  try {
+    await prisma.equipament.delete({ where: { id } });
+    return ["ok", null];
+  } catch (e) {
+    console.error(e);
+    return [null, e];
+  }
+}

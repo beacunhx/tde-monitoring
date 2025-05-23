@@ -32,7 +32,7 @@ model Sensor {
     name         String
     type         SensorType
     data         Data[]
-    Equipament   Equipament? @relation(fields: [equipamentId], references: [id])
+    equipament   Equipament? @relation(fields: [equipamentId], references: [id])
     equipamentId Int?
 }
 

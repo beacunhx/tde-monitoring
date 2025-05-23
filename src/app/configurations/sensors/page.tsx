@@ -1,31 +1,22 @@
-import { Sensor } from "@prisma/generated/client";
 import { DataTable } from "@/components/DataTable";
 import { Header } from "@/components/Header";
 import prisma from "@/lib/prisma";
 import { columns } from "./columns";
 
-const SENSOR_TYPES = {
-  TEMPERATURE: "Temperatura",
-  ELETRICT_CURRENT: "Corrente elétrica",
-  VIBRATION: "Vibração",
-};
-
 export const dynamic = "auto";
 
 export default async function SensorsPage() {
-  const data = await prisma.sensor.findMany();
-  const sensors = data.map((sensor) => ({
-    ...sensor,
-    type: SENSOR_TYPES[sensor.type] as Sensor["type"],
-  }));
+  const data = await prisma.sensor.findMany({
+    include: { equipament: { select: { name: true, id: true } } },
+  });
   return (
     <>
       <Header
         title="Sensores"
-        amount={sensors.length}
+        amount={data.length}
         buttons={[{ label: "Criar", href: "/sensors/create" }]}
       />
-      <DataTable columns={columns} data={sensors} />
+      <DataTable columns={columns} data={data} />
     </>
   );
 }

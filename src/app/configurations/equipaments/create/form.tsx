@@ -4,10 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import {
-  equipamentsCreateSchema,
-  type EquipamentsCreateSchemaType,
-} from "@/app/schemas/equipaments";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -18,7 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { create } from "./actions";
+import {
+  equipamentsCreateSchema,
+  type EquipamentsCreateSchemaType,
+} from "@/schemas/equipaments";
+import { create } from "../actions";
 
 export function EquipamentsCreateForm() {
   const router = useRouter();
@@ -39,14 +39,12 @@ export function EquipamentsCreateForm() {
     const data = new FormData();
     data.append("name", values.name);
     data.append("image", values.image);
-    const [res, err] = await create(data);
+    const [, err] = await create(data);
     if (err) {
       toast.error("Erro ao criar equipamento");
       return;
     }
-
     toast.success("Equipamento criado com sucesso");
-
     router.push("./");
   }
 

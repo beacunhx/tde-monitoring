@@ -10,7 +10,7 @@ export default function SensorsLoading() {
         title="Sensores"
         buttons={[{ label: "Criar", href: "/sensors/create" }]}
       />
-      <TableSkeleton columns={[20, 150, 150, 20]} />
+      <TableSkeleton columns={[20, 150, 150, 150, 20]} />
     </>
   );
 }

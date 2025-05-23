@@ -13,7 +13,7 @@ export function TableSkeleton({ columns, rows = 5 }: TableSkeletonProps) {
       : columns;
 
   return (
-    <div className="rouneded-md border">
+    <div className="rounded-md border">
       <table className="w-full caption-bottom text-sm">
         <thead className="[&_tr]:border-b">
           <tr>
