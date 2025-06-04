@@ -2,7 +2,8 @@
 
 import { Sensor, SensorType, Equipament } from "@prisma/generated/client";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Trash } from "lucide-react";
+import { Eye, Trash } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -53,13 +54,20 @@ export const columns = [
         router.refresh();
       }
       return (
-        <Button
-          size="sm"
-          variant="ghost"
-          onClick={() => onDelete(row.original.id)}
-        >
-          <Trash />
-        </Button>
+        <div className="flex gap-2">
+          <Button size="sm" variant="ghost" asChild>
+            <Link href={"./sensors/view/" + row.original.id}>
+              <Eye />
+            </Link>
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => onDelete(row.original.id)}
+          >
+            <Trash />
+          </Button>
+        </div>
       );
     },
   }),

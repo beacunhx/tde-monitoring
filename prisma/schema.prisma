@@ -21,6 +21,14 @@ enum SensorType {
     VIBRATION
 }
 
+enum SensorFakeDataType {
+    GOOD
+    ACCEPTABLE
+    ALERT
+    DANGEROUS
+    OFF
+}
+
 enum Unit {
     CELSIUS
     AMPERE
@@ -28,11 +36,12 @@ enum Unit {
 }
 
 model Sensor {
-    id           Int         @id @default(autoincrement())
+    id           Int                @id @default(autoincrement())
     name         String
     type         SensorType
+    fakeDataType SensorFakeDataType @default(OFF)
     data         Data[]
-    equipament   Equipament? @relation(fields: [equipamentId], references: [id])
+    equipament   Equipament?        @relation(fields: [equipamentId], references: [id])
     equipamentId Int?
 }
 

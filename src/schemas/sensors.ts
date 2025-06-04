@@ -7,3 +7,10 @@ export const sensorsCreateSchema = z.object({
 });
 
 export type SensorsCreateSchemaType = z.infer<typeof sensorsCreateSchema>;
+
+export const sensorFakeDataSchema = z.object({
+  id: z.number(),
+  fakeDataType: z.enum(["GOOD", "ACCEPTABLE", "ALERT", "DANGEROUS", "OFF"]),
+});
+
+export type SensorFakeDataSchemaType = z.infer<typeof sensorFakeDataSchema>;

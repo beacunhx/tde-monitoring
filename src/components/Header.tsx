@@ -5,7 +5,7 @@ import { SidebarTrigger } from "./ui/sidebar";
 import { Skeleton } from "./ui/skeleton";
 
 type HeaderProps = {
-  title: string;
+  title?: string;
   amount?: number;
   loading?: boolean;
   buttons?: { label: string; href: string }[];
@@ -16,7 +16,11 @@ export function Header({ title, amount, loading, buttons = [] }: HeaderProps) {
     <header className="flex h-13 items-center p-2">
       <SidebarTrigger className="mr-4" />
       <div className="flex items-center gap-1">
-        <span className="font-semibold">{title}</span>
+        {title ? (
+          <span className="font-semibold">{title}</span>
+        ) : loading ? (
+          <Skeleton className="h-4 w-40" />
+        ) : null}
         {typeof amount === "number" ? (
           <>
             <Dot size={16} />
