@@ -29,10 +29,9 @@ enum SensorFakeDataType {
     OFF
 }
 
-enum Unit {
-    CELSIUS
-    AMPERE
-    MILLIMETERS_PER_SECOND
+enum AlarmType {
+    ALERT
+    DANGEROUS
 }
 
 model Sensor {
@@ -41,6 +40,7 @@ model Sensor {
     type         SensorType
     fakeDataType SensorFakeDataType @default(OFF)
     data         Data[]
+    alarm        Alarm[]
     equipament   Equipament?        @relation(fields: [equipamentId], references: [id])
     equipamentId Int?
 }
@@ -49,7 +49,14 @@ model Data {
     id        Int      @id @default(autoincrement())
     timestamp DateTime
     value     Decimal
-    unit      Unit
     Sensor    Sensor?  @relation(fields: [sensorId], references: [id])
+    sensorId  Int?
+}
+
+model Alarm {
+    id        Int       @id @default(autoincrement())
+    timestamp DateTime
+    type      AlarmType
+    Sensor    Sensor?   @relation(fields: [sensorId], references: [id])
     sensorId  Int?
 }
