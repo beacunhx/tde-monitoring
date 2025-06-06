@@ -27,9 +27,9 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
-                  isActive={pathname.startsWith("/home")}
+                  isActive={pathname.startsWith("/monitoring")}
                 >
-                  <Link href="/home">Monitoramento</Link>
+                  <Link href="/monitoring">Monitoramento</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
