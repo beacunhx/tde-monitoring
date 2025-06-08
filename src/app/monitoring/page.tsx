@@ -5,6 +5,8 @@ import { RecentAlarms } from "@/components/RecentAlarms";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function MonitoringPage() {
   const [equipaments, alarms] = await Promise.all([
     prisma.equipament.findMany({

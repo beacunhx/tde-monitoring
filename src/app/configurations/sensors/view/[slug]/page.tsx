@@ -2,6 +2,8 @@ import { Header } from "@/components/Header";
 import prisma from "@/lib/prisma";
 import { SensorsDataForm } from "./form";
 
+export const dynamic = "force-dynamic";
+
 export default async function SensorsViewPage({
   params,
 }: {

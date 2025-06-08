@@ -12,6 +12,8 @@ type ViewMonitoringPageProps = {
   searchParams: Promise<{ id: string }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function ViewMonitoringPage({
   params,
   searchParams,
